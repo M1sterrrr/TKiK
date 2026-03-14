@@ -5,7 +5,7 @@ def skaner(tekst):
         pozycja += 1
 
     if pozycja >= len(tekst):
-        return 'EOF', None
+        return 'END_OF_FILE', None
 
     aktualny_znak = tekst[pozycja]
 
@@ -18,10 +18,10 @@ def skaner(tekst):
     znaki_pojedyncze = {
         '+': 'PLUS',
         '-': 'MINUS',
-        '*': 'MUL',
-        '/': 'DIV',
-        '(': 'LEFTPAREN',
-        ')': 'RIGHTPAREN'
+        '*': 'MULTIPLICATION',
+        '/': 'DIVISION',
+        '(': 'LEFT_PARENTHESIS',
+        ')': 'RIGHT_PARENTHESIS',
     }
 
     if aktualny_znak in znaki_pojedyncze:
@@ -39,10 +39,10 @@ while True:
     kod, wartosc = skaner(wyrazenie)
     pozycja += 1
 
-    if kod == 'EOF':
+    if kod == 'END_OF_FILE':
         print(f"Koniec skanowania :))")
         break
     elif kod == 'ERROR':
         print(f"BŁĄD SKANERA:\n - {wartosc}")
     else:
-        print(f"{kod:11} | {wartosc}")
+        print(f"{kod:20} | {wartosc}")
