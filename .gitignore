@@ -1,4 +1,45 @@
+# Editors / IDEs
 .vscode/
 .idea/
+
+# Python cache / artifacts
 __pycache__/
-*.pyc
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# OS / misc
+.DS_Store
+*.swp
+*.swo
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+
+# C build outputs (generated/compiled)
+*.o
+*.a
+*.so
+*.out
+*.exe
+program
+program_io
+test
+
+# PLY (parser generator) outputs
+parsetab.py
+parser.out
+
+# If you treat generated C as build output, keep ignored:
+kompilator/test.c
+kompilator/test_io.c
