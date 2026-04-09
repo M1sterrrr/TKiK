@@ -1,3 +1,5 @@
+from termcolor import colored
+
 def skaner(tekst):
     global pozycja
 
@@ -5,7 +7,7 @@ def skaner(tekst):
         pozycja += 1
 
     if pozycja >= len(tekst):
-        return 'END_OF_FILE', None
+        return 'magenta', 'END_OF_FILE', None
 
     aktualny_znak = tekst[pozycja]
     start_kolumna = pozycja + 1
@@ -15,14 +17,14 @@ def skaner(tekst):
         while pozycja < len(tekst) and tekst[pozycja].isdigit():
             liczba += tekst[pozycja]
             pozycja += 1
-        return 'NUMBER', liczba
+        return 'blue', 'NUMBER', liczba
 
     if aktualny_znak.isalpha():
         ident = ""
         while pozycja < len(tekst) and tekst[pozycja].isalnum():
             ident += tekst[pozycja]
             pozycja += 1
-        return 'ID', ident
+        return 'yellow', 'ID', ident
 
     znaki_pojedyncze = {
         '+': 'PLUS',
@@ -35,24 +37,27 @@ def skaner(tekst):
 
     if aktualny_znak in znaki_pojedyncze:
         pozycja += 1
-        return znaki_pojedyncze[aktualny_znak], aktualny_znak
+        return 'cyan', znaki_pojedyncze[aktualny_znak], aktualny_znak
 
     pozycja += 1
-    return 'ERROR', f"Nierozpoznany znak '{aktualny_znak}' w kolumnie {start_kolumna}"
+    return 'red', 'ERROR', f"Nierozpoznany znak '{aktualny_znak}' w kolumnie {start_kolumna}"
 
 
 wyrazenie = "2+3*(76+8/3) + 3*(9-3)"
 pozycja = 0
 
-print(f"Analizowany tekst: {wyrazenie}")
+with open("tekst.txt","r") as plik:
+    readFile = plik.readline().strip()
+
+print(f"Analizowany tekst: {readFile}")
 
 while True:
-    kod, wartosc = skaner(wyrazenie)
+    kolor, kod, wartosc = skaner(readFile)
 
     if kod == 'END_OF_FILE':
-        print(f"Koniec skanowania :))")
+        print(f"{colored("Koniec skanowania :))", kolor)}")
         break
     elif kod == 'ERROR':
-        print(f"BŁĄD SKANERA:\n - {wartosc}")
+        print(f"{colored("BŁĄD SKANERA:\n - ", kolor)} {colored(wartosc, kolor)}")
     else:
-        print(f"{kod:20} | {wartosc}")
+        print(f"{colored(kod, kolor):27} | {wartosc}")
