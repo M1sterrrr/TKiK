@@ -2,7 +2,7 @@
 
 Prosty skaner konwertujący kod źródłowy na format HTML. Narzędzie koloruje składnię, zachowując przy tym identyczny układ tekstu (spacje, tabulacje, nowe linie).
 
-## Specyfikacja Tokenów
+## Specyfikacja Tokenów  ✏️
 Program rozpoznaje i koloruje następujące elementy języka:
 
 | Typ Tokena | Opis | Przykład | Kolor |
@@ -15,12 +15,12 @@ Program rozpoznaje i koloruje następujące elementy języka:
 | **WS** | Białe znaki | spacja, `\n`, `\t` | (brak) |
 | **ERROR** | Znaki nierozpoznane | `$`, `@`, `^` | Czerwone tło |
 
-## Logika Skanera
+## Logika Skanera 🧠
 Skaner został zaimplementowany jako **automat skończony** (DFA):
 - **Grupowanie znaków:** Łączy sąsiadujące cyfry w jedną liczbę oraz litery w identyfikatory.
 - **Zachowanie struktury:** Każdy biały znak jest traktowany jako token `WS`, co pozwala na odtworzenie układu pliku wejściowego w przeglądarce.
 
-## Instrukcja obsługi
+## Instrukcja obsługi 📝
 Program uruchamia się z poziomu terminala, podając plik źródłowy oraz nazwę pliku wynikowego:
 
 ```bash
