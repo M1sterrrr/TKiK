@@ -1,9 +1,9 @@
 # TKiK
-## 👥 Autorzy
+## Autorzy
 * **Alicja Kwiatkowska**
 * **Dawid Kałucki**
 
-## 📂 Zawartość
+## Zawartość
 * **`skaner.py`** – Prosty skaner wyrażeń matematycznych (liczby, identyfikatory, operatory).
 * **`kolorowanie_skladni/`** – Projekt kolorowania kodu:
   * **`skaner.py`** – Rozbudowany automat (słowa kluczowe, komentarze, błędy).
